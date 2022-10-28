@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  TrivagoTGT22
-//
-//  Created by Miles Davin Au on 28.10.22.
-//
-
 import UIKit
 import SceneKit
 import ARKit
