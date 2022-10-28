@@ -6,17 +6,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     
+    lazy var trivagoNode: SCNNode = {
+        let scene = SCNScene(named: "art.scnassets/trivago_logo.scn")!
+        let node = SCNNode()
+        scene.rootNode.childNodes.forEach { node.addChildNode($0) }
+        sceneView.scene.rootNode.addChildNode(node)
+        return node
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Set the view's delegate
         sceneView.delegate = self
         
-        // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
-        
-        // Set the scene to the view
-        sceneView.scene = scene
     }
     
     override func viewWillAppear(_ animated: Bool) {
