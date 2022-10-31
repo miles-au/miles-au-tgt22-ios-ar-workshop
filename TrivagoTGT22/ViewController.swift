@@ -45,6 +45,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     func setupGestureRecognizers() {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTap))
         sceneView.addGestureRecognizer(tapGestureRecognizer)
+        let rotateGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(onRotate))
+        sceneView.addGestureRecognizer(rotateGestureRecognizer)
+        let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(onPinch))
+        sceneView.addGestureRecognizer(pinchGestureRecognizer)
     }
     
     @objc func onTap(_ gesture: UITapGestureRecognizer) {
@@ -52,6 +56,28 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         guard let position = rayCast(at: location) else { return }
         
         trivagoNode.worldPosition = position
+    }
+    
+    @objc func onRotate(_ gesture: UIRotationGestureRecognizer) {
+        guard trivagoNode.parent != nil else { return }
+        
+        let rotation = -gesture.rotation / 10
+        
+        if gesture.state == .changed {
+            let rotationQuarternion = SCNQuaternion(0.0, sin(rotation/2), 0.0, cos(rotation/2))
+            trivagoNode.localRotate(by: rotationQuarternion)
+        }
+    }
+    
+    @objc func onPinch(_ gesture: UIPinchGestureRecognizer) {
+        guard trivagoNode.parent != nil else { return }
+        
+        let velocity = Float((gesture.scale - 1) / 10 + 1)
+        
+        if gesture.state == .changed {
+            let scale = trivagoNode.scale
+            trivagoNode.scale = SCNVector3(scale.x * velocity, scale.y * velocity, scale.z * velocity)
+        }
     }
     
     func rayCast(at point: CGPoint) -> SCNVector3? {
