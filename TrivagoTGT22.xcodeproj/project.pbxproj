@@ -11,8 +11,11 @@
 		5C090004290BF09F00C51007 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C090002290BF09F00C51007 /* LaunchScreen.storyboard */; };
 		5C09FFF8290BF09E00C51007 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C09FFF7290BF09E00C51007 /* AppDelegate.swift */; };
 		5C09FFFA290BF09E00C51007 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C09FFF9290BF09E00C51007 /* art.scnassets */; };
-		5C09FFFC290BF09E00C51007 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C09FFFB290BF09E00C51007 /* ViewController.swift */; };
+		5C09FFFC290BF09E00C51007 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C09FFFB290BF09E00C51007 /* ARViewController.swift */; };
 		5C09FFFF290BF09E00C51007 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C09FFFD290BF09E00C51007 /* Main.storyboard */; };
+		5C465DB5291BCF0E00355B6D /* ModelSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C465DB4291BCF0E00355B6D /* ModelSelectionViewController.swift */; };
+		5C465DB7291BD13200355B6D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C465DB6291BD13200355B6D /* Model.swift */; };
+		5C465DBC291BD81D00355B6D /* ModelSelectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C465DBA291BD81D00355B6D /* ModelSelectionCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,8 +24,11 @@
 		5C09FFF4290BF09E00C51007 /* TrivagoTGT22.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrivagoTGT22.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C09FFF7290BF09E00C51007 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C09FFF9290BF09E00C51007 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		5C09FFFB290BF09E00C51007 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5C09FFFB290BF09E00C51007 /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 		5C09FFFE290BF09E00C51007 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5C465DB4291BCF0E00355B6D /* ModelSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSelectionViewController.swift; sourceTree = "<group>"; };
+		5C465DB6291BD13200355B6D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		5C465DBA291BD81D00355B6D /* ModelSelectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSelectionCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,13 +62,40 @@
 			isa = PBXGroup;
 			children = (
 				5C09FFF7290BF09E00C51007 /* AppDelegate.swift */,
-				5C09FFF9290BF09E00C51007 /* art.scnassets */,
-				5C09FFFB290BF09E00C51007 /* ViewController.swift */,
-				5C09FFFD290BF09E00C51007 /* Main.storyboard */,
-				5C090000290BF09F00C51007 /* Assets.xcassets */,
-				5C090002290BF09F00C51007 /* LaunchScreen.storyboard */,
+				5C465DBE291BD87000355B6D /* Model */,
+				5C465DBF291BD87D00355B6D /* View */,
+				5C465DC0291BD88C00355B6D /* Controller */,
 			);
 			path = TrivagoTGT22;
+			sourceTree = "<group>";
+		};
+		5C465DBE291BD87000355B6D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5C465DB6291BD13200355B6D /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5C465DBF291BD87D00355B6D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5C465DBA291BD81D00355B6D /* ModelSelectionCollectionViewCell.swift */,
+				5C09FFFD290BF09E00C51007 /* Main.storyboard */,
+				5C090002290BF09F00C51007 /* LaunchScreen.storyboard */,
+				5C090000290BF09F00C51007 /* Assets.xcassets */,
+				5C09FFF9290BF09E00C51007 /* art.scnassets */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5C465DC0291BD88C00355B6D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5C09FFFB290BF09E00C51007 /* ARViewController.swift */,
+				5C465DB4291BCF0E00355B6D /* ModelSelectionViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +170,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C09FFFC290BF09E00C51007 /* ViewController.swift in Sources */,
+				5C09FFFC290BF09E00C51007 /* ARViewController.swift in Sources */,
+				5C465DB5291BCF0E00355B6D /* ModelSelectionViewController.swift in Sources */,
+				5C465DBC291BD81D00355B6D /* ModelSelectionCollectionViewCell.swift in Sources */,
 				5C09FFF8290BF09E00C51007 /* AppDelegate.swift in Sources */,
+				5C465DB7291BD13200355B6D /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

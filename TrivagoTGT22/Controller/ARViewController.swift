@@ -2,17 +2,10 @@ import UIKit
 import SceneKit
 import ARKit
 
-class ViewController: UIViewController, ARSCNViewDelegate {
-
+class ARViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet var sceneView: ARSCNView!
     
-    lazy var trivagoNode: SCNNode = {
-        let scene = SCNScene(named: "art.scnassets/trivago_logo.scn")!
-        let node = SCNNode()
-        scene.rootNode.childNodes.forEach { node.addChildNode($0) }
-        sceneView.scene.rootNode.addChildNode(node)
-        return node
-    }()
+    var activeNode: SCNNode?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,28 +46,29 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let location = gesture.location(in: sceneView)
         guard let position = rayCast(at: location) else { return }
         
-        trivagoNode.worldPosition = position
+        activeNode?.worldPosition = position
     }
     
     @objc func onRotate(_ gesture: UIRotationGestureRecognizer) {
-        guard trivagoNode.parent != nil else { return }
+        guard activeNode?.parent != nil else { return }
         
         let rotation = -gesture.rotation / 10
         
         if gesture.state == .changed {
             let rotationQuarternion = SCNQuaternion(0.0, sin(rotation/2), 0.0, cos(rotation/2))
-            trivagoNode.localRotate(by: rotationQuarternion)
+            activeNode?.localRotate(by: rotationQuarternion)
         }
     }
     
     @objc func onPinch(_ gesture: UIPinchGestureRecognizer) {
-        guard trivagoNode.parent != nil else { return }
+        guard activeNode?.parent != nil else { return }
         
         let velocity = Float((gesture.scale - 1) / 10 + 1)
         
-        if gesture.state == .changed {
-            let scale = trivagoNode.scale
-            trivagoNode.scale = SCNVector3(scale.x * velocity, scale.y * velocity, scale.z * velocity)
+        if gesture.state == .changed,
+           let node = activeNode {
+            let scale = node.scale
+            node.scale = SCNVector3(scale.x * velocity, scale.y * velocity, scale.z * velocity)
         }
     }
     
@@ -92,29 +86,24 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         return nil
     }
 
-    // MARK: - ARSCNViewDelegate
+    @IBAction func addModelButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "goToModelSelectionViewController", sender: self)
+    }
     
-/*
-    // Override to create and configure nodes for anchors added to the view's session.
-    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToModelSelectionViewController" {
+            if let modelSelectionViewController = segue.destination as? ModelSelectionViewController {
+                modelSelectionViewController.delegate = self
+            }
+        }
+    }
+}
+
+extension ARViewController: ModelSelectionViewControllerDelegate {
+    func didSelect(model: TRVModel) {
         let node = SCNNode()
-     
-        return node
-    }
-*/
-    
-    func session(_ session: ARSession, didFailWithError error: Error) {
-        // Present an error message to the user
-        
-    }
-    
-    func sessionWasInterrupted(_ session: ARSession) {
-        // Inform the user that the session has been interrupted, for example, by presenting an overlay
-        
-    }
-    
-    func sessionInterruptionEnded(_ session: ARSession) {
-        // Reset tracking and/or remove existing anchors if consistent tracking is required
-        
+        model.scene.rootNode.childNodes.forEach { node.addChildNode($0) }
+        sceneView.scene.rootNode.addChildNode(node)
+        activeNode = node
     }
 }
