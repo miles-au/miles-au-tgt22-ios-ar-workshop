@@ -29,6 +29,7 @@
 		5C465DB4291BCF0E00355B6D /* ModelSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSelectionViewController.swift; sourceTree = "<group>"; };
 		5C465DB6291BD13200355B6D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		5C465DBA291BD81D00355B6D /* ModelSelectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSelectionCollectionViewCell.swift; sourceTree = "<group>"; };
+		5C465DC129228E4000355B6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +62,7 @@
 		5C09FFF6290BF09E00C51007 /* TrivagoTGT22 */ = {
 			isa = PBXGroup;
 			children = (
+				5C465DC129228E4000355B6D /* Info.plist */,
 				5C09FFF7290BF09E00C51007 /* AppDelegate.swift */,
 				5C465DBE291BD87000355B6D /* Model */,
 				5C465DBF291BD87D00355B6D /* View */,
@@ -323,7 +325,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 69U444WU64;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TrivagoTGT22/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera is required for Augmented Reality Functionality";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Access to photo library is required to save photos of your augmented reality world";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -353,7 +357,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 69U444WU64;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TrivagoTGT22/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera is required for Augmented Reality Functionality";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Access to photo library is required to save photos of your augmented reality world";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

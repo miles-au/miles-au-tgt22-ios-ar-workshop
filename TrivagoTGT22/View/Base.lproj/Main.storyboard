@@ -21,31 +21,61 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                             </arscnView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eT-Tc-TwF">
-                                <rect key="frame" x="153.66666666666666" y="686.33333333333337" width="82.666666666666657" height="73.666666666666629"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
-                                    <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="default"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="50"/>
-                                    <color key="baseForegroundColor" systemColor="systemOrangeColor"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="addModelButtonPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="MDp-Sx-kbW"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="R78-cT-d3D">
+                                <rect key="frame" x="0.0" y="686.33333333333337" width="390" height="73.666666666666629"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eT-Tc-TwF" userLabel="Camera">
+                                        <rect key="frame" x="0.0" y="0.0" width="195" height="73.666666666666671"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <imageReference key="image" image="camera.circle.fill" catalog="system" symbolScale="default"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="50"/>
+                                            <color key="baseForegroundColor" systemColor="systemOrangeColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="cameraButtonPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Cjs-bi-B3d"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DSF-kq-cEt" userLabel="Add">
+                                        <rect key="frame" x="195" y="0.0" width="195" height="73.666666666666671"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="default"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="50"/>
+                                            <color key="baseForegroundColor" systemColor="systemOrangeColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="addModelButtonPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="MpC-lK-Vag"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IgQ-lC-UuT" userLabel="Flash">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fQZ-KI-GVf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6eT-Tc-TwF" firstAttribute="centerX" secondItem="U0K-SW-4ec" secondAttribute="centerX" id="40Z-30-jej"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="GsS-dJ-CKf"/>
-                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="bottom" secondItem="6eT-Tc-TwF" secondAttribute="bottom" constant="50" id="KFi-mc-lRs"/>
+                            <constraint firstItem="IgQ-lC-UuT" firstAttribute="leading" secondItem="U0K-SW-4ec" secondAttribute="leading" id="Qxu-S5-Nlg"/>
+                            <constraint firstItem="IgQ-lC-UuT" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="VCA-Le-kGp"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="U0K-SW-4ec" secondAttribute="bottom" id="VpT-BR-CcM"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="fQZ-KI-GVf" secondAttribute="trailing" id="XyZ-9z-H8e"/>
+                            <constraint firstItem="R78-cT-d3D" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="ac4-4a-c4U"/>
+                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="bottom" secondItem="R78-cT-d3D" secondAttribute="bottom" constant="50" id="eKG-pK-ccg"/>
+                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="R78-cT-d3D" secondAttribute="trailing" id="q1t-g1-IHf"/>
+                            <constraint firstAttribute="trailing" secondItem="IgQ-lC-UuT" secondAttribute="trailing" id="rA9-o5-9Ac"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="rJc-2c-zQA"/>
+                            <constraint firstAttribute="bottom" secondItem="IgQ-lC-UuT" secondAttribute="bottom" id="roE-uS-tEC"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="flashView" destination="IgQ-lC-UuT" id="aPw-zF-rFN"/>
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
                         <segue destination="I5F-6c-eWc" kind="presentation" identifier="goToModelSelectionViewController" id="cnz-2v-37i"/>
                     </connections>
@@ -104,6 +134,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera.circle.fill" catalog="system" width="128" height="123"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

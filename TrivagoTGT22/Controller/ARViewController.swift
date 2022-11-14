@@ -4,6 +4,7 @@ import ARKit
 
 class ARViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet var sceneView: ARSCNView!
+    @IBOutlet weak var flashView: UIView!
     
     var activeNode: SCNNode?
     
@@ -86,6 +87,16 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         return nil
     }
 
+    @IBAction func cameraButtonPressed(_ sender: UIButton) {
+        let image = sceneView.snapshot()
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        
+        flashView.backgroundColor = .white
+        UIView.animate(withDuration: 0.25) { [weak self] in
+            self?.flashView.backgroundColor = .clear
+        }
+    }
+    
     @IBAction func addModelButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: "goToModelSelectionViewController", sender: self)
     }
