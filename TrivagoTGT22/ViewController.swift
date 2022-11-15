@@ -19,6 +19,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Set the view's delegate
         sceneView.delegate = self
+        sceneView.automaticallyUpdatesLighting = true
+        sceneView.autoenablesDefaultLighting = true
+        
+        setupGestureRecognizers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,4 +41,31 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Pause the view's session
         sceneView.session.pause()
     }
+    
+    func setupGestureRecognizers() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTap))
+        sceneView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc func onTap(_ gesture: UITapGestureRecognizer) {
+        let location = gesture.location(in: sceneView)
+        guard let position = rayCast(at: location) else { return }
+        
+        trivagoNode.worldPosition = position
+    }
+    
+    func rayCast(at point: CGPoint) -> SCNVector3? {
+        if let query = sceneView.raycastQuery(from: point, allowing: .estimatedPlane, alignment: .horizontal),
+           let collision = sceneView.session.raycast(query).first {
+            let transformColumn3 = collision.worldTransform.columns.3
+            let worldPosition = SCNVector3(
+                transformColumn3.x,
+                transformColumn3.y,
+                transformColumn3.z
+            )
+            return worldPosition
+        }
+        return nil
+    }
+
 }
