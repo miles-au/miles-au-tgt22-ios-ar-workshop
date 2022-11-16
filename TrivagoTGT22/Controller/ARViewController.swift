@@ -12,6 +12,9 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         super.viewDidLoad()
         sceneView.delegate = self
         
+        sceneView.automaticallyUpdatesLighting = true
+        sceneView.autoenablesDefaultLighting = true
+        
         setupGestureRecognizers()
     }
     
@@ -23,8 +26,6 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
 
         // Run the view's session
         sceneView.session.run(configuration)
-        sceneView.automaticallyUpdatesLighting = true
-        sceneView.autoenablesDefaultLighting = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
