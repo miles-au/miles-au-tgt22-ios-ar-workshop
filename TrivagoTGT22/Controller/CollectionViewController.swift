@@ -1,7 +1,13 @@
 import UIKit
 import ARKit
 
+protocol CollectionViewControllerDelegate {
+    func didSelect(model: Model)
+}
+
 class CollectionViewController: UICollectionViewController {
+    
+    var delegate: CollectionViewControllerDelegate?
     
     lazy var models: [Model] = {
         return Model.names.compactMap { name in
@@ -33,6 +39,11 @@ class CollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.reuseIdentifier, for: indexPath) as! CollectionViewCell
         cell.setImage(to: models[indexPath.item].image)
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.didSelect(model: models[indexPath.item])
+        dismiss(animated: true)
     }
 }
 

@@ -6,7 +6,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     
-    lazy var trivagoNode: SCNNode = {
+    lazy var activeNode: SCNNode = {
         let scene = SCNScene(named: "art.scnassets/trivago_logo.scn")!
         let node = SCNNode()
         scene.rootNode.childNodes.forEach { node.addChildNode($0) }
@@ -55,28 +55,28 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let location = gesture.location(in: sceneView)
         guard let position = rayCast(at: location) else { return }
         
-        trivagoNode.worldPosition = position
+        activeNode.worldPosition = position
     }
     
     @objc func onRotate(_ gesture: UIRotationGestureRecognizer) {
-        guard trivagoNode.parent != nil else { return }
+        guard activeNode.parent != nil else { return }
         
         let rotation = -gesture.rotation / 10
         
         if gesture.state == .changed {
             let rotationQuarternion = SCNQuaternion(0.0, sin(rotation/2), 0.0, cos(rotation/2))
-            trivagoNode.localRotate(by: rotationQuarternion)
+            activeNode.localRotate(by: rotationQuarternion)
         }
     }
     
     @objc func onPinch(_ gesture: UIPinchGestureRecognizer) {
-        guard trivagoNode.parent != nil else { return }
+        guard activeNode.parent != nil else { return }
         
         let velocity = Float((gesture.scale - 1) / 10 + 1)
         
         if gesture.state == .changed {
-            let scale = trivagoNode.scale
-            trivagoNode.scale = SCNVector3(scale.x * velocity, scale.y * velocity, scale.z * velocity)
+            let scale = activeNode.scale
+            activeNode.scale = SCNVector3(scale.x * velocity, scale.y * velocity, scale.z * velocity)
         }
     }
     
@@ -98,4 +98,22 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         performSegue(withIdentifier: "goToCollectionView", sender: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToCollectionView",
+           let viewController = segue.destination as? CollectionViewController {
+            viewController.delegate = self
+        }
+    }
+    
+}
+
+extension ViewController: CollectionViewControllerDelegate {
+    func didSelect(model: Model) {
+        let node = SCNNode()
+        model.scene.rootNode.childNodes.forEach {
+            node.addChildNode($0)
+        }
+        sceneView.scene.rootNode.addChildNode(node)
+        activeNode = node
+    }
 }
