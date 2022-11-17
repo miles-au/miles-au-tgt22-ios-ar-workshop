@@ -51,9 +51,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         activeNode?.worldPosition = position
     }
     
-    @objc func onRotate(_ gesture: UIRotationGestureRecognizer) {
-        guard activeNode?.parent != nil else { return }
-        
+    @objc func onRotate(_ gesture: UIRotationGestureRecognizer) {        
         let rotation = -gesture.rotation / 10
         
         if gesture.state == .changed {
@@ -63,8 +61,6 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
     }
     
     @objc func onPinch(_ gesture: UIPinchGestureRecognizer) {
-        guard activeNode?.parent != nil else { return }
-        
         let velocity = Float((gesture.scale - 1) / 10 + 1)
         
         if gesture.state == .changed,
