@@ -57,15 +57,39 @@
 		5C09FFF6290BF09E00C51007 /* TrivagoTGT22 */ = {
 			isa = PBXGroup;
 			children = (
+				5C7644C0292670DF003155DF /* Model */,
+				5C7644C1292670E3003155DF /* View */,
+				5C7644C2292670E7003155DF /* Controller */,
 				5C09FFF7290BF09E00C51007 /* AppDelegate.swift */,
-				5C09FFF9290BF09E00C51007 /* art.scnassets */,
-				5C09FFFB290BF09E00C51007 /* ViewController.swift */,
-				5C7644BB29266DD5003155DF /* CollectionViewController.swift */,
-				5C09FFFD290BF09E00C51007 /* Main.storyboard */,
-				5C090000290BF09F00C51007 /* Assets.xcassets */,
-				5C090002290BF09F00C51007 /* LaunchScreen.storyboard */,
 			);
 			path = TrivagoTGT22;
+			sourceTree = "<group>";
+		};
+		5C7644C0292670DF003155DF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5C7644C1292670E3003155DF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5C09FFFD290BF09E00C51007 /* Main.storyboard */,
+				5C090002290BF09F00C51007 /* LaunchScreen.storyboard */,
+				5C090000290BF09F00C51007 /* Assets.xcassets */,
+				5C09FFF9290BF09E00C51007 /* art.scnassets */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5C7644C2292670E7003155DF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5C09FFFB290BF09E00C51007 /* ViewController.swift */,
+				5C7644BB29266DD5003155DF /* CollectionViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
