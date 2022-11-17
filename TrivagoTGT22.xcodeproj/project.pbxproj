@@ -13,6 +13,7 @@
 		5C09FFFA290BF09E00C51007 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C09FFF9290BF09E00C51007 /* art.scnassets */; };
 		5C09FFFC290BF09E00C51007 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C09FFFB290BF09E00C51007 /* ViewController.swift */; };
 		5C09FFFF290BF09E00C51007 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C09FFFD290BF09E00C51007 /* Main.storyboard */; };
+		5C7644BC29266DD5003155DF /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7644BB29266DD5003155DF /* CollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		5C09FFF9290BF09E00C51007 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		5C09FFFB290BF09E00C51007 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5C09FFFE290BF09E00C51007 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5C7644BB29266DD5003155DF /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 				5C09FFF7290BF09E00C51007 /* AppDelegate.swift */,
 				5C09FFF9290BF09E00C51007 /* art.scnassets */,
 				5C09FFFB290BF09E00C51007 /* ViewController.swift */,
+				5C7644BB29266DD5003155DF /* CollectionViewController.swift */,
 				5C09FFFD290BF09E00C51007 /* Main.storyboard */,
 				5C090000290BF09F00C51007 /* Assets.xcassets */,
 				5C090002290BF09F00C51007 /* LaunchScreen.storyboard */,
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C7644BC29266DD5003155DF /* CollectionViewController.swift in Sources */,
 				5C09FFFC290BF09E00C51007 /* ViewController.swift in Sources */,
 				5C09FFF8290BF09E00C51007 /* AppDelegate.swift in Sources */,
 			);

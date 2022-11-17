@@ -93,5 +93,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
         return nil
     }
-
+    
+    @IBAction func didTapAddModel(_ sender: Any) {
+        performSegue(withIdentifier: "goToCollectionView", sender: self)
+    }
+    
 }
