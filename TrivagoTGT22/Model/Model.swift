@@ -8,6 +8,7 @@ struct TRVModel {
     static let names = [
         "trivago_logo",
         "ihearttrv",
-        "dusseldorf_sign"
+        "dusseldorf_sign",
+        "plane"
     ]
 }
