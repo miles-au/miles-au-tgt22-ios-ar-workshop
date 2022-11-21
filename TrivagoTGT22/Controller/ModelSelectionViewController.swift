@@ -41,7 +41,7 @@ class ModelSelectionViewController: UICollectionViewController {
 extension ModelSelectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let contentInset = collectionView.contentInset.left + collectionView.contentInset.right
-        let dimension = ((collectionView.bounds.width - contentInset) / 3) - 5.0
+        let dimension = ((collectionView.bounds.width - contentInset) / 3)
         return CGSize(width: dimension, height: dimension)
     }
     
