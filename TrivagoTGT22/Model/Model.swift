@@ -9,6 +9,7 @@ struct TRVModel {
         "trivago_logo",
         "ihearttrv",
         "dusseldorf_sign",
-        "plane"
+        "plane",
+        "airport_sign"
     ]
 }
