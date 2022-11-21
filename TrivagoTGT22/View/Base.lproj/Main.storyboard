@@ -23,33 +23,30 @@
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                             </arscnView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="R78-cT-d3D">
-                                <rect key="frame" x="0.0" y="686.33333333333337" width="390" height="73.666666666666629"/>
+                                <rect key="frame" x="0.0" y="703.33333333333337" width="390" height="56.666666666666629"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eT-Tc-TwF" userLabel="Camera">
-                                        <rect key="frame" x="0.0" y="0.0" width="195" height="73.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="195" height="56.666666666666664"/>
+                                        <color key="tintColor" red="1" green="0.5450980392" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Button">
+                                        <state key="normal">
                                             <color key="titleColor" systemColor="systemOrangeColor"/>
                                             <imageReference key="image" image="camera.circle.fill" catalog="system" symbolScale="default"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50"/>
                                         </state>
-                                        <buttonConfiguration key="configuration" style="plain">
-                                            <imageReference key="image" image="camera.circle.fill" catalog="system" symbolScale="default"/>
-                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="50"/>
-                                            <color key="baseForegroundColor" systemColor="systemOrangeColor"/>
-                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="cameraButtonPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Cjs-bi-B3d"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DSF-kq-cEt" userLabel="Add">
-                                        <rect key="frame" x="195" y="0.0" width="195" height="73.666666666666671"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
+                                        <rect key="frame" x="195" y="0.0" width="195" height="56.666666666666664"/>
+                                        <color key="tintColor" red="1" green="0.5450980392" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal">
+                                            <color key="titleColor" systemColor="systemOrangeColor"/>
                                             <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="default"/>
-                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="50"/>
-                                            <color key="baseForegroundColor" systemColor="systemOrangeColor"/>
-                                        </buttonConfiguration>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50"/>
+                                        </state>
                                         <connections>
                                             <action selector="addModelButtonPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="MpC-lK-Vag"/>
                                         </connections>
