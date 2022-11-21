@@ -22,6 +22,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.automaticallyUpdatesLighting = true
         sceneView.autoenablesDefaultLighting = true
         
+        sceneView.debugOptions = [.showFeaturePoints]
+        
         setupGestureRecognizers()
     }
     
@@ -49,9 +51,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     @objc func onTap(_ gesture: UITapGestureRecognizer) {
         let location = gesture.location(in: sceneView)
-        guard let position = rayCast(at: location) else { return }
         
-        trivagoNode.worldPosition = position
+        guard let result = sceneView.hitTest(location).first else { return }
+        trivagoNode.worldPosition = SCNVector3(
+            result.worldCoordinates.x,
+            result.worldCoordinates.y,
+            result.worldCoordinates.z
+        )
     }
     
     func rayCast(at point: CGPoint) -> SCNVector3? {
